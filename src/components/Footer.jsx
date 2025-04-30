@@ -1,0 +1,100 @@
+import React from 'react';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+
+const Footer = () => {
+  return (
+    <footer className="bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* About Section */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">Bhumi Connect</h3>
+            <p className="text-gray-400">
+              Empowering farmers with smart solutions and helping citizens build better communities through technology.
+            </p>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <FaFacebook className="w-6 h-6" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <FaTwitter className="w-6 h-6" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <FaInstagram className="w-6 h-6" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <FaLinkedin className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Farmer Portal</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Citizen Portal</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Services</h3>
+            <ul className="space-y-2">
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Crop Advisory</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Farm Equipment</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Market Prices</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Community Issues</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white transition-colors">Expert Support</a></li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start space-x-3">
+                <FaPhone className="text-green-500 mt-1" />
+                <div>
+                  <p className="text-gray-400">Phone</p>
+                  <p className="text-white">+91 98765 43210</p>
+                </div>
+              </li>
+              <li className="flex items-start space-x-3">
+                <FaEnvelope className="text-green-500 mt-1" />
+                <div>
+                  <p className="text-gray-400">Email</p>
+                  <p className="text-white">support@bhumiconnect.com</p>
+                </div>
+              </li>
+              <li className="flex items-start space-x-3">
+                <FaMapMarkerAlt className="text-green-500 mt-1" />
+                <div>
+                  <p className="text-gray-400">Address</p>
+                  <p className="text-white">123 Tech Park, Bangalore, Karnataka, India - 560001</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
+          <p className="text-gray-400">
+            © {new Date().getFullYear()} Bhumi Connect. All rights reserved.
+          </p>
+          <div className="mt-4 space-x-4">
+            <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer; 
