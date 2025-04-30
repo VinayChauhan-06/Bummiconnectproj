@@ -16,14 +16,10 @@ const Carousel = () => {
       title: "Smart Agriculture",
       description: "Expert Advice for Better Crop Management"
     },
-    {
-      image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      title: "Government Services",
-      description: "Easy Access to Government Schemes and Support"
-    },
+    
     {
       image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
-      title: "Citizen Portal",
+      title: "Report Issue",
       description: "One-Stop Solution for All Citizen Services"
     },
     {
@@ -43,7 +39,7 @@ const Carousel = () => {
     if (isAutoPlaying) {
       interval = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % slides.length);
-      }, 5000);
+      }, 2500);
     }
     return () => clearInterval(interval);
   }, [isAutoPlaying, slides.length]);
@@ -66,7 +62,7 @@ const Carousel = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4, ease: 'easeInOut' }}
           className="absolute inset-0"
         >
           <img

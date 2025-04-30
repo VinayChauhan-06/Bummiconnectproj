@@ -7,10 +7,17 @@ import reportWebVitals from './reportWebVitals';
 import Login from './components/Login/Login.jsx';
 import Signup from './components/Signup/Signup.jsx';
 import About from './components/About/About.jsx';
+import ReportIssue from './components/ReportIssue/ReportIssue.jsx';
+import TrackMyReport from './components/TrackMyReport.jsx';
+import TrendingIssue from './components/TrendingIssue.jsx';
 import Contact from './components/Contact/Contact.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <App />,
+  },
+  {
+    path: "/home",
     element: <App />,
   },
 
@@ -28,9 +35,23 @@ const router = createBrowserRouter([
     element: <About />
   },
   {
+    path: "/report",
+    element: <ReportIssue/>
+  },
+  {
+    path: "/track-my-report",
+    element: <TrackMyReport/>
+  },
+ 
+  {
+    path: "/trending-issue",
+    element: <TrendingIssue/>
+  },
+  {
     path: "/contact",
-    element: <Contact />
+    element: <Contact/>
   }
+ 
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

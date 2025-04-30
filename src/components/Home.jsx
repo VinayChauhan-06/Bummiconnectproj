@@ -3,8 +3,8 @@ import { FaLeaf, FaTractor, FaWater, FaRoad, FaUserShield, FaChartLine, FaHandsH
 import { motion } from 'framer-motion';
 import Carousel from './Carousel';
 import Footer from './Footer';
-import nav from "../components/nav"
 import Navbar from '../components/nav';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [activeRole, setActiveRole] = useState(null);
@@ -43,47 +43,83 @@ const Home = () => {
 
   const roles = [
     {
-      name: "FARMER",
+      name: "Farmer Advisory",
       style: dashboardStyles.farmer,
       icon: "https://cdn-icons-png.flaticon.com/512/2329/2329167.png",
       alt: "Farmer Icon",
-      href: "/farmer-dashboard",
+      to: "/farmer-dashboard",
     },
     {
-      name: "CITIZEN",
+      name: "Report Issue",
       style: dashboardStyles.citizen,
       icon: "https://cdn-icons-png.flaticon.com/512/2329/2329167.png",
       alt: "Citizen Icon",
-      href: "/citizen-dashboard",
+      to: "/report",
     },
     {
-      name: "EXPERT",
+      name: "Track My Report",
       style: dashboardStyles.expert,
       icon: "https://cdn-icons-png.flaticon.com/512/2329/2329167.png",
       alt: "Expert Icon",
-      href: "/expert-dashboard",
+      to: "/track-my-report",
     },
     {
-      name: "ADMIN",
+      name: "Trending Local Issue",
       style: dashboardStyles.admin,
       icon: "https://cdn-icons-png.flaticon.com/512/2329/2329167.png",
       alt: "Admin Icon",
-      href: "/admin-dashboard",
+      to: "/trending-issue",
     },
   ];
 
   const farmerFeatures = [
-    { icon: <FaLeaf />, title: "Crop Advisory", desc: "Get expert advice on crop selection and management." },
-    { icon: <FaTractor />, title: "Farm Equipment", desc: "Find and rent modern farming equipment." },
-    { icon: <FaWater />, title: "Irrigation Solutions", desc: "Smart irrigation techniques and water management." },
-    { icon: <FaChartLine />, title: "Market Prices", desc: "Real-time market prices and trends." },
+    {
+      icon: <FaLeaf />,
+      title: "Crop Advisory",
+      desc: "Get expert advice on crop selection and management.",
+      to: "https://icar.org.in/advisory-stunted-growth-paddy-crop",
+    },
+    {
+      icon: <FaTractor />,
+      title: "Farm Equipment",
+      desc: "Find and rent modern farming equipment.",
+      to: "https://khetigaadi.com/",
+    },
+    {
+      icon: <FaWater />,
+      title: "Irrigation Solutions",
+      desc: "Smart irrigation techniques and water management.",
+      to: "https://pmksy.gov.in/",
+    },
+    {
+      icon: <FaChartLine />,
+      title: "Market Prices",
+      desc: "Real-time market prices and trends.",
+      to: "https://www.india.gov.in/topics/agriculture/marketing-prices",
+    },
   ];
 
   const citizenFeatures = [
-    { icon: <FaRoad />, title: "Road Issues", desc: "Report potholes and road maintenance problems." },
-    { icon: <FaWater />, title: "Water Issues", desc: "Report water leaks and supply problems." },
-    { icon: <FaUserShield />, title: "Corruption", desc: "Report corruption and malpractice." },
-    { icon: <FaHandsHelping />, title: "Community Help", desc: "Request and offer community assistance." },
+    {
+      icon: <FaRoad />,
+      title: "Road Issues",
+      desc: "Report potholes and road maintenance problems.",
+    },
+    {
+      icon: <FaWater />,
+      title: "Water Issues",
+      desc: "Report water leaks and supply problems.",
+    },
+    {
+      icon: <FaUserShield />,
+      title: "Corruption",
+      desc: "Report corruption and malpractice.",
+    },
+    {
+      icon: <FaHandsHelping />,
+      title: "Community Help",
+      desc: "Request and offer community assistance.",
+    },
   ];
 
   return (
@@ -123,20 +159,22 @@ const Home = () => {
                   transition={{ duration: 0.8, delay: 0.6 }}
                   className="flex flex-col md:flex-row gap-4 justify-center"
                 >
-                  <motion.button
+                  <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    href="/farmer-dashboard"
                     className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-300"
                   >
                     Farmer Portal
-                  </motion.button>
-                  <motion.button
+                  </motion.a>
+                  <motion.a
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    href="/report"
                     className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-300"
                   >
-                    Citizen Portal
-                  </motion.button>
+                    Report Issue
+                  </motion.a>
                 </motion.div>
               </div>
             </motion.div>
@@ -177,27 +215,31 @@ const Home = () => {
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12"
           >
             {roles.map((role, index) => (
-              <motion.a
+              <Link
                 key={index}
-                href={role.href}
-                className="flex flex-col items-center justify-center text-center rounded-lg shadow-xl transition-all duration-300 p-6 hover:scale-105"
-                style={{
-                  backgroundColor: role.style.background,
-                  color: role.style.textColor,
-                  border: activeRole === index ? `2px solid ${role.style.borderColor}` : 'none',
-                }}
-                onMouseEnter={() => setActiveRole(index)}
-                onMouseLeave={() => setActiveRole(null)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                to={role.to}
+                className="no-underline"
               >
-                <img
-                  src={role.icon}
-                  alt={role.alt}
-                  className="mb-4 w-16 h-16 rounded-full object-cover"
-                />
-                <span className="text-lg font-semibold">{role.name}</span>
-              </motion.a>
+                <motion.div
+                  className="flex flex-col items-center justify-center text-center rounded-lg shadow-xl transition-all duration-300 p-6 hover:scale-105"
+                  style={{
+                    backgroundColor: role.style.background,
+                    color: role.style.textColor,
+                    border: activeRole === index ? `2px solid ${role.style.borderColor}` : 'none',
+                  }}
+                  onMouseEnter={() => setActiveRole(index)}
+                  onMouseLeave={() => setActiveRole(null)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <img
+                    src={role.icon}
+                    alt={role.alt}
+                    className="mb-4 w-16 h-16 rounded-full object-cover"
+                  />
+                  <span className="text-lg font-semibold">{role.name}</span>
+                </motion.div>
+              </Link>
             ))}
           </motion.div>
 
@@ -211,7 +253,8 @@ const Home = () => {
             <h2 className="text-3xl font-bold text-center mb-8 text-white">Farmer Services</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {farmerFeatures.map((feature, index) => (
-                <motion.div
+                <motion.a
+                  href={feature.to}
                   key={index}
                   className="bg-white/10 backdrop-blur-sm p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
@@ -222,7 +265,7 @@ const Home = () => {
                   </div>
                   <h3 className="text-xl font-bold text-white">{feature.title}</h3>
                   <p className="mt-2 text-gray-200">{feature.desc}</p>
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </motion.section>
